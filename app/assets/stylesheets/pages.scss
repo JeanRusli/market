@@ -1,3 +1,61 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  margin-top: 50px;
+  width: 1420px;
+}
+
+#home_page {
+//  background-image: url("coffee-desktop-background-498003.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+#home_roast {
+//  background-image: url("coffee-desktop-background-498003.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+div.thumbnail {
+  margin: 50px 20px;
+  padding: 10px;
+  border: 1px solid #000000;
+  height: 320px;
+  width: 280px;
+  float: left;
+  text-align: center;
+}
+
+div.thumbnail img {
+  height: 240px;
+  width: 250px;
+  border: 1px solid #000000;
+}
+
+#new_link a:link{
+//  background-color: #FFFFFF;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+div.col-md-4 {
+   height: 100%;
+}
+
+h3 {
+  
+}
+
+#navbar-header {
+  background-color: #00bfff;
+}
+
+#content {
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+}

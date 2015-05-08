@@ -13,6 +13,7 @@ class RoastsController < ApplicationController
   # GET /roasts/1
   # GET /roasts/1.json
   def show
+    @order_item = current_order.order_items.new
   end
 
   # GET /roasts/new

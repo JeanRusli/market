@@ -1,8 +1,9 @@
 class TransactionsController < ApplicationController
   def create
   	roast  = Roast.find_by!(slug: params[:slug])
-	sale = roast.sales.create(
-		amount: roast.price,
+	order  = Order.find_by!(slug: params[:slug])
+	sale = order.sales.create(
+		amount: order.subtotal,
 		buyer_email: current_user.email,
 		seller_email: roast.user.email,
 		stripe_token: params[:stripeToken])
@@ -17,5 +18,7 @@ class TransactionsController < ApplicationController
   def pickup
     @sale = Sale.find_by!(guid: params[:guid])
     @roast = @sale.roast
+    @order = @sale.order
+    @order_items = @sale.order_items
   end
 end

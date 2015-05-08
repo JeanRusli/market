@@ -1,0 +1,5 @@
+<ul>
+  <% @roasts.each do |roast| %>
+<li><%= link_to roast.name, roast_path(roast) %></li>
+<% end %>
+</ul>

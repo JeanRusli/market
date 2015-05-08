@@ -5,7 +5,7 @@
   <% end %>
 <div class="caption">
   <p><strong><%= link_to roast.name, roast_path(roast) %></strong></p>
-  <p>$ <%=roast.price.to_f%></p>
+  <p>$ <%=roast.price.to_f / 100 %></p>
 </div>
 </div>
 </div>
