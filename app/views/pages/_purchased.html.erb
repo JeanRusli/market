@@ -8,8 +8,12 @@
   <tbody>
   <% @purchased.each do |sale| %>
     <tr>
-      <td><%= link_to sale.roast.name, pickup_path(sale.guid) %></td>
-      <td><%= time_ago_in_words(sale.created_at) %> ago</td>
+      <% sale.order.each do |oi| %>
+	<% oi.each do |ro| %>
+	<td><%= link_to ro.roast.name, pickup_path(sale.guid) %></td>
+	<td><%= time_ago_in_words(sale.created_at) %> ago</td>
+	<% end %>
+	<% end %>
     </tr>
   <% end %>
   </tbody>

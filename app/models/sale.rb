@@ -2,8 +2,7 @@ class Sale < ActiveRecord::Base
 	 before_create :populate_guid
   belongs_to :roast
   
-  belongs_to :order
-  belongs_to :order_item
+  has_many :order
   
   include AASM
   

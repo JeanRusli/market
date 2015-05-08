@@ -1,12 +1,10 @@
 class OrderItem < ActiveRecord::Base
   
-  extend FriendlyId
-    friendly_id :name, use: :slugged
+#  extend FriendlyId
+#    friendly_id :order_id, use: :slugged
   
   belongs_to :roast
   belongs_to :order
-  
-  has_many :sales
   
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :roast_present

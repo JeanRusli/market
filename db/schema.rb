@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508064738) do
+ActiveRecord::Schema.define(version: 20150508172815) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -34,10 +34,12 @@ ActiveRecord::Schema.define(version: 20150508064738) do
     t.decimal  "total_price", precision: 12, scale: 3
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "slug"
   end
 
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
   add_index "order_items", ["roast_id"], name: "index_order_items_on_roast_id"
+  add_index "order_items", ["slug"], name: "index_order_items_on_slug", unique: true
 
   create_table "order_statuses", force: :cascade do |t|
     t.string   "name"
@@ -53,9 +55,11 @@ ActiveRecord::Schema.define(version: 20150508064738) do
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.string   "slug"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+  add_index "orders", ["slug"], name: "index_orders_on_slug", unique: true
 
   create_table "roasts", force: :cascade do |t|
     t.string   "name"
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150508064738) do
     t.string   "stripe_token"
     t.text     "error"
     t.integer  "amount"
+    t.integer  "order_id"
   end
 
   create_table "users", force: :cascade do |t|

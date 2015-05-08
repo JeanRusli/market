@@ -1,11 +1,11 @@
 class TransactionsController < ApplicationController
   def create
-  	roast  = Roast.find_by!(slug: params[:slug])
-	order  = Order.find_by!(slug: params[:slug])
-	sale = order.sales.create(
-		amount: order.subtotal,
+#  	roast  = Roast.find_by!(slug: params[:slug])
+#	order  = Order.find_by!(slug: params[:slug])
+	sale = current_order.sales.create(
+		amount: current_order.subtotal,
 		buyer_email: current_user.email,
-		seller_email: roast.user.email,
+#		seller_email: roast.user.email,
 		stripe_token: params[:stripeToken])
 	sale.process!
 	if sale.finished?
@@ -19,6 +19,6 @@ class TransactionsController < ApplicationController
     @sale = Sale.find_by!(guid: params[:guid])
     @roast = @sale.roast
     @order = @sale.order
-    @order_items = @sale.order_items
+#    @order_items = @sale.order_items
   end
 end
